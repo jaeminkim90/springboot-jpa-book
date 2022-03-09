@@ -5,7 +5,7 @@ import javax.persistence.*;
 @Entity
 public class Member {
 
-    @Id @GeneratedValue
+    @Id @GeneratedValue // DB가 만들어주는 식별자 사용. 기본 전략은 AUTO를 사용한다.
     @Column(name = "MEMBER_ID")
     private Long id;
     private String name;
