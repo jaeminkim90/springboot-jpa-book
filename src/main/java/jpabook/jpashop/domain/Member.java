@@ -10,7 +10,7 @@ public class Member extends BaseEntity  {
     @Id @GeneratedValue // DB가 만들어주는 식별자 사용. 기본 전략은 AUTO를 사용한다.
     @Column(name = "MEMBER_ID")
     private Long id;
-    private String name;
+    private String username;
     private String city;
     private String street;
     private String zipcode;
@@ -26,12 +26,12 @@ public class Member extends BaseEntity  {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getUsername() {
+        return username;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public String getCity() {
