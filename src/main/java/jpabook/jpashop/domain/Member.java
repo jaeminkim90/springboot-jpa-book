@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-public class Member {
+public class Member extends BaseEntity  {
 
     @Id @GeneratedValue // DB가 만들어주는 식별자 사용. 기본 전략은 AUTO를 사용한다.
     @Column(name = "MEMBER_ID")
