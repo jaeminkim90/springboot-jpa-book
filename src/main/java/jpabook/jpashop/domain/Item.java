@@ -1,11 +1,12 @@
 package jpabook.jpashop.domain;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@DiscriminatorColumn
 public class Item {
 
     @Id @GeneratedValue
@@ -14,7 +15,19 @@ public class Item {
 
     private String name;
     private int price;
-    private int stockQujantity;
+    private int stockQuantity;
+
+
+    @ManyToMany(mappedBy = "items")
+    private List<Category> categories = new ArrayList<>();
+
+    public int getStockQuantity() {
+        return stockQuantity;
+    }
+
+    public void setStockQuantity(int stockQuantity) {
+        this.stockQuantity = stockQuantity;
+    }
 
     public Long getId() {
         return id;
@@ -40,11 +53,4 @@ public class Item {
         this.price = price;
     }
 
-    public int getStockQujantity() {
-        return stockQujantity;
-    }
-
-    public void setStockQujantity(int stockQujantity) {
-        this.stockQujantity = stockQujantity;
-    }
 }
